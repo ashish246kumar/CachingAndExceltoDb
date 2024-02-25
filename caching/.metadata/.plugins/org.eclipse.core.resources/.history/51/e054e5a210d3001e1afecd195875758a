@@ -1,0 +1,50 @@
+package com.caching.caching.service.impl;
+
+import java.util.List;
+import java.io.File;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
+import com.caching.caching.entity.Invoice;
+import com.caching.caching.repository.InvoiceRepository;
+import com.caching.caching.service.IExcelDataService;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import java.io.IOException;
+import java.util.*;
+
+public class ExcelDataServiceImpl implements IExcelDataService{
+
+	@Autowired
+	InvoiceRepository repo;
+	Workbook workbook;
+	
+	@Value("${app.upload.file:${user.home}}")
+	public String EXCEL_FILE_PATH;
+	
+	@Override
+	public List<Invoice> getExcelDataAsList() {
+		
+		List<String>list=new ArrayList<>();
+		
+		DataFormatter dataFormatter = new DataFormatter();
+		try {
+			workbook = WorkbookFactory.create(new File(EXCEL_FILE_PATH));
+		}
+		catch(EncryptedDocumentException | IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public int saveExcelData(List<Invoice> invoices) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

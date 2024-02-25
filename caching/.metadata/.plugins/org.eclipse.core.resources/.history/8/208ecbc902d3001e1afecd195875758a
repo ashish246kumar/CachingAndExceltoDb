@@ -1,0 +1,6 @@
+package com.caching.caching.repository;
+
+public interface InvoiceRepository {
+
+	
+}

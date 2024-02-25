@@ -1,0 +1,12 @@
+package com.caching.caching.service;
+
+import java.util.List;
+
+import com.caching.caching.entity.Invoice;
+
+public interface IExcelDataService {
+
+	List<Invoice>getExcelDataAsList();
+	int saveExcelData(List<Invoice> invoices);
+	
+}

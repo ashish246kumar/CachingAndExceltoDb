@@ -1,0 +1,5 @@
+package com.caching.caching.service;
+
+public interface IExcelDataService {
+
+}

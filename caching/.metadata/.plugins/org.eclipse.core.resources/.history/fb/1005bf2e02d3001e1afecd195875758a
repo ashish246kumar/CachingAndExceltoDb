@@ -1,0 +1,5 @@
+package com.caching.caching.entity;
+
+public class Invoice {
+
+}
